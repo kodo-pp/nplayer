@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ -z "$1" ]]; then
+    echo "Usage: nplayer <file>  OR  nplayer -i"
+    exit 1
+fi
+
+
+
+if [[ "$1" == "-i" ]]; then
+    cd /opt/nplayer/
+    ./main.py
+else
+    fname="$(realpath "$1")"
+    cd /opt/nplayer/
+    ./filter.py "${fname}" | ./main.py
+fi

@@ -1,0 +1,10 @@
+pak_name="nplayer"
+pak_depends=()
+pak_license_file="LICENSE"
+
+pak_package() {
+    mkdir -p "$PAK_PKGDIR/opt/nplayer"
+    install -m755 main.py filter.py gen_freq.py "$PAK_PKGDIR/opt/nplayer"
+    mkdir -p "$PAK_PKGDIR/usr/bin"
+    install -m755 nplayer "$PAK_PKGDIR/usr/bin"
+}
